@@ -1,0 +1,70 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CommandTable xmlns="http://schemas.microsoft.com/VisualStudio/2005-10-18/CommandTable" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+	<Extern href="stdidcmd.h"/>
+	<Extern href="vsshlids.h"/>
+	<Include href="KnownImageIds.vsct"/>
+	<Include href="VSGlobals.vsct"/>
+
+	<Commands package="CopyInclude">
+		<Groups>
+			<Group guid="CopyInclude" id="DocumentsGroup" priority="0x0100"/>
+			<Group guid="CopyInclude" id="SolutionExplorerGroup" priority="0x0100"/>
+		</Groups>
+
+		<Buttons>
+			<Button guid="CopyInclude" id="CopyIncludeExternCommand" priority="0x0100" type="Button">
+				<Icon guid="ImageCatalogGuid" id="CopyItem" />
+				<CommandFlag>IconIsMoniker</CommandFlag>
+				<Strings>
+					<ButtonText>Copy Include &lt;...&gt;</ButtonText>
+					<LocCanonicalName>.CopyInclude.FormatInclude</LocCanonicalName>
+				</Strings>
+			</Button>
+			<Button guid="CopyInclude" id="CopyIncludeLocalCommand" priority="0x0100" type="Button">
+				<Icon guid="ImageCatalogGuid" id="CopyItem" />
+				<CommandFlag>IconIsMoniker</CommandFlag>
+				<Strings>
+					<ButtonText>Copy Include "..."</ButtonText>
+					<LocCanonicalName>.CopyInclude.FormatInclude</LocCanonicalName>
+				</Strings>
+			</Button>
+		</Buttons>
+	</Commands>
+
+	<CommandPlacements>
+		<CommandPlacements>
+			
+			<CommandPlacement guid="CopyInclude" id="DocumentsGroup" priority="0x0100">
+				<Parent guid="guidSHLMainMenu" id="IDM_VS_CTXT_EZDOCWINTAB"/>
+			</CommandPlacement>
+			<CommandPlacement guid="CopyInclude" id="SolutionExplorerGroup" priority="0x0100">
+				<Parent guid="guidSHLMainMenu" id="IDM_VS_CTXT_ITEMNODE"/>
+			</CommandPlacement>
+
+			<CommandPlacement guid="CopyInclude" id="CopyIncludeLocalCommand" priority="0x0100">
+				<Parent guid="CopyInclude" id="DocumentsGroup"/>
+			</CommandPlacement>
+			<CommandPlacement guid="CopyInclude" id="CopyIncludeLocalCommand" priority="0x0100">
+				<Parent guid="CopyInclude" id="SolutionExplorerGroup"/>
+			</CommandPlacement>
+
+			<CommandPlacement guid="CopyInclude" id="CopyIncludeExternCommand" priority="0x0100">
+				<Parent guid="CopyInclude" id="DocumentsGroup"/>
+			</CommandPlacement>
+			<CommandPlacement guid="CopyInclude" id="CopyIncludeExternCommand" priority="0x0100">
+				<Parent guid="CopyInclude" id="SolutionExplorerGroup"/>
+			</CommandPlacement>
+			
+		</CommandPlacements>
+	</CommandPlacements>
+
+	<Symbols>
+		<GuidSymbol name="CopyInclude" value="{189edcf7-ed70-4dce-97e9-d31ee6dba57d}">
+			<IDSymbol name="DocumentsGroup" value="0x0001" />
+			<IDSymbol name="SolutionExplorerGroup" value="0x0002" />
+			<IDSymbol name="CopyIncludeLocalCommand" value="0x0100" />
+			<IDSymbol name="CopyIncludeExternCommand" value="0x0200" />
+		</GuidSymbol>
+	</Symbols>
+</CommandTable>
